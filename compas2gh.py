@@ -53,6 +53,6 @@ def convert_compas_geometry_to_gh_geometry(compas_geometry):
 
 
 if __name__ == "__main__":
-    if compas.is_ironpython or compas.is_mono:
+    if compas.is_ironpython() or compas.is_mono():
         if compas_geometry is not None:  # type: ignore # noqa: F823
             rhino_geometry = convert_compas_geometry_to_gh_geometry(compas_geometry)  # type: ignore # noqa: F823
