@@ -22,4 +22,4 @@ if filename:
 file = None
 if os.path.isfile(path):
     with open(path) as f:
-        file = f.readlines()
+        file = f.read()
