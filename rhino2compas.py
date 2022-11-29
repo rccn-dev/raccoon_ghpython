@@ -12,7 +12,7 @@ output parameters
 * compas_geometry
 """
 
-import Rhino.Geometry as rg  # type: ignore # noqa: F401
+import Rhino.Geometry as r_g  # type: ignore # noqa: F401
 import compas
 import compas.datastructures as cd
 import compas_rhino.geometry as crg
@@ -67,17 +67,17 @@ def convert_rhino_geometry_to_compas_geometry(rhino_geometry):
     ----------
         compas.geometry
     """
-    if isinstance(rhino_geometry, rg.Point3d):
+    if isinstance(rhino_geometry, r_g.Point3d):
         return crg.RhinoPoint.from_geometry(rhino_geometry).to_compas()
-    elif isinstance(rhino_geometry, rg.Vector3d):
+    elif isinstance(rhino_geometry, r_g.Vector3d):
         return crg.RhinoVector.from_geometry(rhino_geometry).to_compas()
-    elif isinstance(rhino_geometry, rg.Line):
+    elif isinstance(rhino_geometry, r_g.Line):
         return crg.RhinoLine.from_geometry(rhino_geometry).to_compas()
-    elif isinstance(rhino_geometry, rg.Plane):
+    elif isinstance(rhino_geometry, r_g.Plane):
         return crg.RhinoPlane.from_geometry(rhino_geometry).to_compas()
-    elif isinstance(rhino_geometry, rg.Mesh):
+    elif isinstance(rhino_geometry, r_g.Mesh):
         return crg.RhinoMesh.from_geometry(rhino_geometry).to_compas()
-    elif isinstance(rhino_geometry, rg.Brep):
+    elif isinstance(rhino_geometry, r_g.Brep):
         print("converting a rhino brep to compas mesh")
         return crg.RhinoMesh.from_geometry(rhino_geometry).to_compas()
     else:
@@ -87,5 +87,5 @@ def convert_rhino_geometry_to_compas_geometry(rhino_geometry):
 
 if __name__ == "__main__":
     if compas.is_ironpython() or compas.is_mono():
-        if rhino_geometry is not None:  # type: ignore # noqa: F823
-            compas_geometry = convert_rhino_geometry_to_compas_geometry(rhino_geometry)  # type: ignore # noqa: F823
+        if rg is not None:  # type: ignore # noqa: F823
+            cg = convert_rhino_geometry_to_compas_geometry(rg)  # type: ignore # noqa: F823
