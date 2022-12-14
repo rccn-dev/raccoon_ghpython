@@ -74,7 +74,7 @@ def convert_rhino_geometry_to_compas_geometry(rhino_geometry):
     elif isinstance(rhino_geometry, r_g.Line):
         return crg.RhinoLine.from_geometry(rhino_geometry).to_compas()
     elif isinstance(rhino_geometry, r_g.Plane):
-        return crg.RhinoPlane.from_geometry(rhino_geometry).to_compas()
+        return crg.RhinoPlane.from_geometry(rhino_geometry).to_compas_frame()
     elif isinstance(rhino_geometry, r_g.Mesh):
         return crg.RhinoMesh.from_geometry(rhino_geometry).to_compas()
     elif isinstance(rhino_geometry, r_g.Brep):
